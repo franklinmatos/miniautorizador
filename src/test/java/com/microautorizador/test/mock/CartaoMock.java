@@ -2,6 +2,7 @@ package com.microautorizador.test.mock;
 
 import com.microautorizador.dto.CartaoDTO;
 import com.microautorizador.entity.Cartao;
+import com.microautorizador.util.Util;
 
 import java.math.BigDecimal;
 import java.util.Random;
@@ -17,7 +18,7 @@ public class CartaoMock {
      */
     public static Cartao umCartaoInicializado(){
         return Cartao.builder()
-                .numeroCartao(gerarNumeroCartao())
+                .numeroCartao(Util.gerarNumeroCartao())
                 .senhaCartao("123456")
                 .valor(new BigDecimal(500.00)).build();
     }
@@ -44,7 +45,7 @@ public class CartaoMock {
     public static Cartao umCartaoSemSaldo(){
         return Cartao.builder()
                 .id(UUID.randomUUID())
-                .numeroCartao(gerarNumeroCartao())
+                .numeroCartao(Util.gerarNumeroCartao())
                 .senhaCartao("123456")
                 .valor(new BigDecimal(0.00)).build();
     }
@@ -58,7 +59,7 @@ public class CartaoMock {
     public static Cartao umCartaoComSaldoUtilizadoParcialmente(){
         return Cartao.builder()
                 .id(UUID.randomUUID())
-                .numeroCartao(gerarNumeroCartao())
+                .numeroCartao(Util.gerarNumeroCartao())
                 .senhaCartao("123456")
                 .valor(new BigDecimal(300.00)).build();
     }
@@ -78,9 +79,5 @@ public class CartaoMock {
                 .valor(new BigDecimal(500.00)).build();
     }
 
-    public static String gerarNumeroCartao(){
-        Random random = new Random();
-        int numero = random.nextInt(123456789);
-        return String.valueOf(numero);
-    }
+
 }

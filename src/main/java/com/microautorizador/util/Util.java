@@ -3,6 +3,8 @@ package com.microautorizador.util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.Random;
+
 public class Util {
 
     public static String convertObjectToString ( Object obj) {
@@ -17,5 +19,11 @@ public class Util {
         }
         return null;
 
+    }
+
+    public static String gerarNumeroCartao(){
+        Random random = new Random();
+        int numero = random.nextInt(123456789);
+        return String.valueOf(numero);
     }
 }

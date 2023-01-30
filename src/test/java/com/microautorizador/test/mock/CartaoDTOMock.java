@@ -1,6 +1,7 @@
 package com.microautorizador.test.mock;
 
 import com.microautorizador.dto.CartaoDTO;
+import com.microautorizador.util.Util;
 
 import java.util.Random;
 
@@ -29,14 +30,10 @@ public class CartaoDTOMock {
      */
     public static CartaoDTO umCartaoComNumeroAleatorioDTO(){
         return CartaoDTO.builder()
-                .numeroCartao(gerarNumeroCartao())
+                .numeroCartao(Util.gerarNumeroCartao())
                 .senha(SENHA)
                 .build();
     }
 
-    public static String gerarNumeroCartao(){
-        Random random = new Random();
-        int numero = random.nextInt(123456789);
-        return String.valueOf(numero);
-    }
+
 }
