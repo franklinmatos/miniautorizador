@@ -14,5 +14,5 @@ public interface CartaoRepository extends JpaRepository<Cartao, UUID> {
      * @param numeroCartao
      * @return Optional<Cartao>
      */
-    public Optional<Cartao> pesquisarPorNumeroCartao(String numeroCartao);
+    Optional<Cartao> findByNumeroCartao(String numeroCartao);
 }

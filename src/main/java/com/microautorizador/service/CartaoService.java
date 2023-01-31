@@ -27,7 +27,7 @@ public class CartaoService {
     }
 
     public Optional<Cartao> pesquisarCartaoPorNumeroCartao(String numeroCartao) {
-        return repository.pesquisarPorNumeroCartao(numeroCartao);
+        return repository.findByNumeroCartao(numeroCartao);
     }
 
     public ResponseEntity<BigDecimal> getSaldo(String numeroCartao) {

@@ -79,7 +79,7 @@ public class CartaoServiceTest {
     void criarCartaoNovo_erro() {
         var cartaoDTO = CartaoDTOMock.umCartaoDTO();
         var cartaoNovo = CartaoMock.converterCartaoDTOInCartaoComID(cartaoDTO);
-        when(repository.pesquisarPorNumeroCartao(any())).thenReturn(Optional.of(cartaoNovo));
+        when(repository.findByNumeroCartao(any())).thenReturn(Optional.of(cartaoNovo));
         var response = new ResponseEntity<CartaoDTO>(cartaoDTO, HttpStatus.CREATED);
         var exception =  assertThrows(UnprocessableEntityException.class, () -> {
             service.criarCartao(cartaoDTO);
